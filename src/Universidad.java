@@ -1,5 +1,7 @@
 
 import java.util.ArrayList;
+import java.io.*;
+
 
 /*
  * To change this license header, choose License Headers in Project Properties.
@@ -63,6 +65,7 @@ public class Universidad {
       
       public void crearSedeTec(String nombre, String direccion,int telefono, double area){
           sedesTecnologicas.add(new SedeTecnologica(nombre,direccion,telefono,area));
+          
       }
       
        public void crearSedePro(String nombre, String direccion,int telefono, double area){
@@ -89,7 +92,7 @@ public class Universidad {
                   if(sedesProfesionales.get(i).nombre.equals(nombreSede)){
                       for (int j = 0; j < programasPro.size(); j++) {
                           if(programasPro.get(j).nombre.equals(nombre)){
-                              sedesProfesionales.get(i).agregarPrograma(nombre, programasPro.get(j).descripcion,tipoPrograma);
+                              sedesProfesionales.get(i).agregarProgramaPro(programasPro.get(j));
                           }break;
                       }
                   }break;
@@ -100,7 +103,7 @@ public class Universidad {
                   if(sedesTecnologicas.get(i).nombre.equals(nombreSede)){
                       for (int j = 0; j < programasTec.size(); j++) {
                           if(programasTec.get(j).nombre.equals(nombre)){
-                              sedesProfesionales.get(i).agregarPrograma(nombre, programasTec.get(j).descripcion, tipoPrograma);
+                              sedesProfesionales.get(i).agregarProgramaTec(programasTec.get(j));
                           }break;
                       }
                   }break;
@@ -111,7 +114,7 @@ public class Universidad {
                   if(sedesContinuadas.get(i).nombre.equals(nombreSede)){
                       for (int j = 0; j < programasCon.size(); j++) {
                           if(programasCon.get(j).nombre.equals(nombre)){
-                              sedesProfesionales.get(i).agregarPrograma(nombre, programasCon.get(j).descripcion, tipoPrograma);
+                              sedesProfesionales.get(i).agregarProgramaCon(programasCon.get(j));
                           }break;
                       }
                   }break;
@@ -122,12 +125,38 @@ public class Universidad {
                   if(sedesTecnologicas.get(i).nombre.equals(nombreSede)){
                       for (int j = 0; j < programasTec.size(); j++) {
                           if(programasTec.get(j).nombre.equals(nombre)){
-                              sedesTecnologicas.get(i).agregarPrograma(nombre, programasTec.get(j).descripcion);
+                              sedesTecnologicas.get(i).agregarProgramaTec(programasTec.get(j));
+                          }break;
+                      }
+                  }break;
+              }
+          }
+          else if(tipoPrograma.equals("continuada") && tipoSede.equals("continuada")){
+               for (int i = 0; i < sedesContinuadas.size(); i++) {
+                  if(sedesContinuadas.get(i).nombre.equals(nombreSede)){
+                      for (int j = 0; j < programasCon.size(); j++) {
+                          if(programasCon.get(j).nombre.equals(nombre)){
+                              sedesContinuadas.get(i).agregarProgramaCon(programasCon.get(j));
                           }break;
                       }
                   }break;
               }
           }
       }
+      
+      public void agregarEstudiante(String nombre, String apellido, String colegio, String año, String nombrePrograma){
+          this.estudiantes.add(new Estudiante(nombre,apellido,colegio,año,nombrePrograma));
+          for (int i = 0; i < sedesTecnologicas.size(); i++) {
+               for (int j = 0; j < programasTec.size(); j++) {
+                  if(programasTec.get(j).equals(nombrePrograma)){
+                      sedesTecnologicas.get(i).anadirEst();
+              }
+                   
+               }
+          }
+      }
+      
+      
+      
 }
 

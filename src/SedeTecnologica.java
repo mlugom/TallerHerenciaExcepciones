@@ -25,11 +25,25 @@ public class SedeTecnologica extends Sede{
     public String darInformacion(){
         return this.nombre+" "+this.telefono+ "  "+ this.direccion + "  "+ this.area+ "  "+ this.numeroEstudiantes;
     }
+        public void agregarProgramaTec(ProgramaTecnologico programa){
+            this.programasTec.add(programa);
+        }
 
     @Override
     public void agregarPrograma() {
         throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
     }
+
+    public int getNumeroEstudiantes() {
+        return numeroEstudiantes;
+    }
+    
+    public void anadirEst(){
+        this.numeroEstudiantes++;
+    }
     
     
-}
+    }
+    
+    
+

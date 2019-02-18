@@ -23,5 +23,13 @@ public class SedeContinuada extends Sede{
     public String darInformacion() {
           return this.nombre+" "+this.telefono+ "  "+ this.direccion + "  "+ this.area+ "  "+ this.popular;
     }
+    public void agregarProgramaCon(Curso programa){
+        this.programasCon.add(programa);
+    }
+    
+    @Override
+    public void agregarPrograma() {
+        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+    }
     
 }

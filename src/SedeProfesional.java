@@ -28,14 +28,24 @@ public class SedeProfesional extends Sede {
         return this.nombre+" "+this.telefono+ "  "+ this.direccion + "  "+ this.area+ "  "+ this.nProgramaRegCalificado;
     }
 
-    public void agregarPrograma(String nombre, String descripcion, String tipoPrograma ) {
-       this.
+    public void agregarProgramaPro(ProgramaProfesional programa) {
+           this.programasPro.add(programa);
+    }
            
+    public void agregarProgramaTec(ProgramaTecnologico programa){
+           this.programasTec.add(programa);
        }
+    public void agregarProgramaCon(Curso programa){
+           this.programasCon.add(programa);
+       }
+
+    @Override
+    public void agregarPrograma() {
+        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+    }
+    
+    
     }
 
     
-    
-    
-    
-}
+   
