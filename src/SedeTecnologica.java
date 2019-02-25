@@ -42,7 +42,7 @@ public class SedeTecnologica extends Sede{
     }
 
     @Override
-    public ArrayList getProgramas() {
+    public ArrayList<ProgramaTecnologico> getProgramas() {
         return this.programasTec;
     }
     

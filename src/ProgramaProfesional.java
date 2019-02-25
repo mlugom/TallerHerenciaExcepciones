@@ -20,6 +20,7 @@ public class ProgramaProfesional extends ProgramaFormacion {
         return registroCalificado;
     }
 
+    @Override
     public String getNombre() {
         return this.nombre;
     }

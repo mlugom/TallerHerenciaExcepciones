@@ -46,13 +46,13 @@ public class SedeProfesional extends Sede {
     }
 
     @Override
-    public ArrayList getProgramas() {
+    public ArrayList<ProgramaProfesional> getProgramas() {
         return this.programasPro;
     }
-    public ArrayList getProgramasCon() {
+    public ArrayList<Curso> getProgramasCon() {
         return this.programasCon;
     }
-    public ArrayList getProgramasTec() {
+    public ArrayList<ProgramaTecnologico> getProgramasTec() {
        return this.programasTec;
     }
 }

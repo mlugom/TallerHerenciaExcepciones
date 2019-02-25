@@ -32,7 +32,7 @@ public class SedeContinuada extends Sede{
     }
 
     @Override
-    public ArrayList getProgramas() {
+    public ArrayList<Curso> getProgramas() {
         return this.programasCon;
     }
 
