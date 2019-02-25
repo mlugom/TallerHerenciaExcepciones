@@ -9,32 +9,24 @@
  * @author Alejandro
  */
 public class ProgramaProfesional extends ProgramaFormacion {
-    
-    
     boolean registroCalificado;
 
     public ProgramaProfesional(String nombre, String descripcion) {
         super(nombre, descripcion);
+        this.registroCalificado = true;
+    }
+
+    public boolean isRegistroCalificado() {
+        return registroCalificado;
+    }
+
+    public String getNombre() {
+        return this.nombre;
+    }
+
+    public String getDescripcion() {
+        return this.descripcion;
     }
     
-    @Override
-    public String getNombre() {
-        return nombre;
-    }
-
-    @Override
-    public void setNombre(String nombre) {
-        this.nombre = nombre;
-    }
-
-    @Override
-    public String getDescripcion() {
-        return descripcion;
-    }
-
-    @Override
-    public void setDescripcion(String descripcion) {
-        this.descripcion = descripcion;
-    }
     
 }

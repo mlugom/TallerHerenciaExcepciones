@@ -22,7 +22,37 @@ public class Universidad {
     private ArrayList<ProgramaProfesional> programasPro;
     private ArrayList<ProgramaTecnologico> programasTec;
     private ArrayList<Curso> programasCon;
+
+    public Universidad(String nombre) {
+        this.nombre = nombre;
+        this.estudiantes = new ArrayList<>();
+        this.sedesContinuadas = new ArrayList<>();
+        this.sedesProfesionales = new ArrayList<>();
+        this.sedesTecnologicas = new ArrayList<>();
+        this.programasCon = new ArrayList<>();
+        this.programasPro = new ArrayList<>();
+        this.programasTec = new ArrayList<>();
+    }
+
+    public Universidad(String nombre, ArrayList<Estudiante> estudiantes, ArrayList<SedeProfesional> sedesProfesionales, ArrayList<SedeTecnologica> sedesTecnologicas, ArrayList<SedeContinuada> sedesContinuadas, ArrayList<ProgramaProfesional> programasPro, ArrayList<ProgramaTecnologico> programasTec, ArrayList<Curso> programasCon) {
+        this.nombre = nombre;
+    }
+
+    public ArrayList<SedeProfesional> getSedesProfesionales() {
+        return sedesProfesionales;
+    }
+
+    public ArrayList<SedeTecnologica> getSedesTecnologicas() {
+        return sedesTecnologicas;
+    }
+
+    public ArrayList<SedeContinuada> getSedesContinuadas() {
+        return sedesContinuadas;
+    }
    
+    
+    
+    
     public ArrayList darInformacionPro(){
         ArrayList<String> salida = new ArrayList();
         for (int i = 0; i < sedesProfesionales.size() ; i++) {
@@ -70,20 +100,24 @@ public class Universidad {
       
        public void crearSedePro(String nombre, String direccion,int telefono, double area){
           sedesProfesionales.add(new SedeProfesional(nombre,direccion,telefono,area));
+         // File archivo =new File("src/Universidad/Profesionales/sede1");
       }
         public void crearSedeCon(String nombre, String direccion,int telefono, double area){
           sedesContinuadas.add(new SedeContinuada(nombre,direccion,telefono,area));
       }
         
       public void CrearProgramaTec(String nombre,String descripcion){
-          programasTec.add(new ProgramaTecnologico(nombre, descripcion));
+          ProgramaTecnologico p = new ProgramaTecnologico(nombre, descripcion);
+          programasTec.add(p);
       }  
       
       public void CrearProgramaPro(String nombre,String descripcion){
-          programasPro.add(new ProgramaProfesional(nombre, descripcion));
+          ProgramaProfesional p = new ProgramaProfesional(nombre, descripcion);
+          programasPro.add(p);
       }  
       public void CrearProgramaCon(String nombre,String descripcion){
-          programasCon.add(new Curso(nombre, descripcion));
+          Curso p = new Curso(nombre, descripcion);
+          programasCon.add(p);
       }  
       
       public void agregarPrograma(String nombre, String nombreSede, String tipoPrograma, String tipoSede){
@@ -92,7 +126,7 @@ public class Universidad {
                   if(sedesProfesionales.get(i).nombre.equals(nombreSede)){
                       for (int j = 0; j < programasPro.size(); j++) {
                           if(programasPro.get(j).nombre.equals(nombre)){
-                              sedesProfesionales.get(i).agregarProgramaPro(programasPro.get(j));
+                              sedesProfesionales.get(i).agregarPrograma(programasPro.get(j));
                           }break;
                       }
                   }break;
@@ -125,7 +159,7 @@ public class Universidad {
                   if(sedesTecnologicas.get(i).nombre.equals(nombreSede)){
                       for (int j = 0; j < programasTec.size(); j++) {
                           if(programasTec.get(j).nombre.equals(nombre)){
-                              sedesTecnologicas.get(i).agregarProgramaTec(programasTec.get(j));
+                              sedesTecnologicas.get(i).agregarPrograma(programasTec.get(j));
                           }break;
                       }
                   }break;
@@ -136,7 +170,7 @@ public class Universidad {
                   if(sedesContinuadas.get(i).nombre.equals(nombreSede)){
                       for (int j = 0; j < programasCon.size(); j++) {
                           if(programasCon.get(j).nombre.equals(nombre)){
-                              sedesContinuadas.get(i).agregarProgramaCon(programasCon.get(j));
+                              sedesContinuadas.get(i).agregarPrograma(programasCon.get(j));
                           }break;
                       }
                   }break;
@@ -155,6 +189,22 @@ public class Universidad {
                }
           }
       }
+
+    public ArrayList<Estudiante> getEstudiantes() {
+        return estudiantes;
+    }
+
+    public ArrayList<ProgramaProfesional> getProgramasPro() {
+        return programasPro;
+    }
+
+    public ArrayList<ProgramaTecnologico> getProgramasTec() {
+        return programasTec;
+    }
+
+    public ArrayList<Curso> getProgramasCon() {
+        return programasCon;
+    }
       
       
       

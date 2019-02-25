@@ -8,7 +8,7 @@
  *
  * @author Alejandro
  */
-public class ProgramaFormacion {
+public abstract class ProgramaFormacion {
     protected String nombre;
     protected String descripcion;
 
@@ -18,18 +18,12 @@ public class ProgramaFormacion {
 
     }
    
-    
-    public String getNombre() {
-        return nombre;
-    }
 
     public void setNombre(String nombre) {
         this.nombre = nombre;
     }
 
-    public String getDescripcion() {
-        return descripcion;
-    }
+
 
     public void setDescripcion(String descripcion) {
         this.descripcion = descripcion;

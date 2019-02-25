@@ -17,19 +17,25 @@ public class SedeContinuada extends Sede{
 
     public SedeContinuada(String nombre, String direccion, int telefono, double area) {
         super(nombre, direccion, telefono, area);
+        this.programasCon = new ArrayList<>();
     }
 
     @Override
     public String darInformacion() {
           return this.nombre+" "+this.telefono+ "  "+ this.direccion + "  "+ this.area+ "  "+ this.popular;
     }
-    public void agregarProgramaCon(Curso programa){
-        this.programasCon.add(programa);
-    }
+    
     
     @Override
-    public void agregarPrograma() {
-        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+    public void agregarPrograma(ProgramaFormacion programa) {
+        this.programasCon.add((Curso) programa);
     }
+
+    @Override
+    public ArrayList getProgramas() {
+        return this.programasCon;
+    }
+
+    
     
 }

@@ -19,17 +19,17 @@ public class SedeProfesional extends Sede {
 
     public SedeProfesional(String nombre, String direccion, int telefono, double area) {
         super(nombre, direccion, telefono, area);
+        this.nProgramaRegCalificado = 0;
+        this.programasCon = new ArrayList<>();
+        this.programasPro = new ArrayList<>();
+        this.programasTec = new ArrayList<>();
     }
 
    
 
     @Override
     public String darInformacion() {
-        return this.nombre+" "+this.telefono+ "  "+ this.direccion + "  "+ this.area+ "  "+ this.nProgramaRegCalificado;
-    }
-
-    public void agregarProgramaPro(ProgramaProfesional programa) {
-           this.programasPro.add(programa);
+        return this.nombre+" , "+this.telefono+ " , "+ this.direccion + " , "+ this.area+ " , "+ this.nProgramaRegCalificado;
     }
            
     public void agregarProgramaTec(ProgramaTecnologico programa){
@@ -40,12 +40,22 @@ public class SedeProfesional extends Sede {
        }
 
     @Override
-    public void agregarPrograma() {
-        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+    public void agregarPrograma(ProgramaFormacion programa) {
+        this.programasPro.add((ProgramaProfesional) programa);
+        this.nProgramaRegCalificado++;
     }
-    
-    
+
+    @Override
+    public ArrayList getProgramas() {
+        return this.programasPro;
     }
+    public ArrayList getProgramasCon() {
+        return this.programasCon;
+    }
+    public ArrayList getProgramasTec() {
+       return this.programasTec;
+    }
+}
 
     
    

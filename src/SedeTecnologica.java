@@ -17,6 +17,8 @@ public class SedeTecnologica extends Sede{
 
     public SedeTecnologica(String nombre, String direccion, int telefono, double area) {
         super(nombre, direccion, telefono, area);
+        this.numeroEstudiantes = 0;
+        this.programasTec = new ArrayList<>();
     }
 
   
@@ -25,13 +27,10 @@ public class SedeTecnologica extends Sede{
     public String darInformacion(){
         return this.nombre+" "+this.telefono+ "  "+ this.direccion + "  "+ this.area+ "  "+ this.numeroEstudiantes;
     }
-        public void agregarProgramaTec(ProgramaTecnologico programa){
-            this.programasTec.add(programa);
-        }
 
     @Override
-    public void agregarPrograma() {
-        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+    public void agregarPrograma(ProgramaFormacion programa) {
+        this.programasTec.add((ProgramaTecnologico) programa);
     }
 
     public int getNumeroEstudiantes() {
@@ -40,6 +39,11 @@ public class SedeTecnologica extends Sede{
     
     public void anadirEst(){
         this.numeroEstudiantes++;
+    }
+
+    @Override
+    public ArrayList getProgramas() {
+        return this.programasTec;
     }
     
     
