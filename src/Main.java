@@ -28,7 +28,6 @@ public class Main {
         
         sedesPro.get(0).write(universidad.getSedesProfesionales().get(0).darInformacion());
         sedesPro.get(0).write('\n' + "Programas: " + '\n');
-        sedesPro.get(0).write(universidad.getSedesProfesionales().get(0).getProgramas().get(0)
         for(int i = 0; i < universidad.getSedesProfesionales().get(0).getProgramas().size(); i++){
             sedesPro.get(0).write(universidad.getSedesProfesionales().get(0).getProgramas().get(i).getNombre());
             sedesPro.get(0).write(universidad.getSedesProfesionales().get(0).getProgramasTec().get(i).getNombre());
